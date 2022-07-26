@@ -5,13 +5,14 @@ module.exports = {
     },
     params: {
       class: 'J',
-	  side: 'F'
+	  side: 'F',
+      libref: 'lib:Jumper',
     },
     body: p => `
-        (module lib:Jumper (layer F.Cu) (tedit 5E1ADAC2)
-        ${p.at /* parametric position */} 
+        (module ${p.param.libref} (layer F.Cu) (tedit 5E1ADAC2)
+        ${p.at /* parametric position */}
 
-        ${'' /* footprint reference */}        
+        ${'' /* footprint reference */}
         (fp_text reference "${p.ref}" (at 0 0) (layer F.SilkS) ${p.ref_hide} (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value Jumper (at 0 -7.3) (layer F.Fab) (effects (font (size 1 1) (thickness 0.15))))
 
